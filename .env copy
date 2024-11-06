@@ -1,0 +1,10 @@
+MORALIS_API_KEY=""
+EMAIL_USER="arvindkumar93258@gmail.com"
+EMAIL_PASSWORD="Your_password"
+
+#db connection details
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=Basotra@123
+DB_NAME=hyperhire
