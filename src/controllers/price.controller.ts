@@ -25,6 +25,12 @@ export class PricesController {
     return this.alertsService.createAlert(alertDto.chain, alertDto.targetPrice, alertDto.email);
   }
 
+  @ApiOperation({summary: "send alert on the set price "})
+  @Post('send-alert')
+  async sendAlrtForTriggeredPrice(@Body() alertDetails: { email: string, chain: string, newPrice: number, oldPrice: number}){
+    return this.alertsService.sendAlertForTriggeredPrice(alertDetails.email, alertDetails.chain, alertDetails.newPrice, alertDetails.oldPrice)
+  }
+
   @Get('swap-rate')
   async getSwapRate(@Query('ethAmount') ethAmount: number) {
     const btcAmount = ethAmount * 0.03; // Simulated swap rate

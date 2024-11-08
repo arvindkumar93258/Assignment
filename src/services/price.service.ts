@@ -28,10 +28,10 @@ export class PricesService {
     }
   }
 
-  async getPricesWithin24Hours(): Promise<Price[]> {
+  async getPricesWithin24Hours(chain: string): Promise<Price[]> {
     return await this.priceRepository.find({
       where: {
-        chain: 'eth',
+        chain: chain,
         priceType: PriceType.ONE_HOUR,
       },
       order: {
