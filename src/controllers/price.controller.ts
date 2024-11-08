@@ -33,8 +33,6 @@ export class PricesController {
 
   @Get('swap-rate')
   async getSwapRate(@Query('ethAmount') ethAmount: number) {
-    const btcAmount = ethAmount * 0.03; // Simulated swap rate
-    const fee = ethAmount * 0.03;
-    return { btcAmount, fee, feeInUSD: fee * 1 }; // Assuming $1 for 1 ETH for simplicity
+    return this.pricesService.getSwapRate(ethAmount);
   }
 }
