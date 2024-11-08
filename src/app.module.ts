@@ -31,10 +31,9 @@ import { ScheduledTasksService } from './scheduled.tasks';
         synchronize: true,  // Only for development; remove in production
       }),
     }),
-    ScheduledTasksService,
     TypeOrmModule.forFeature([Price, Alert]),  // Make sure both entities are listed here
   ],
   controllers: [AppController, PricesController],
-  providers: [AppService, AlertsService, PricesService],
+  providers: [AppService, AlertsService, PricesService, ScheduledTasksService],
 })
 export class AppModule {}
