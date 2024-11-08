@@ -38,7 +38,6 @@ export class AlertsService {
   async sendAlertForTriggeredPrice(email: string, chain: string, newPrice: number, oldPrice: number) {
     await this.sendEmail(email, chain, newPrice);    
   }
-
   private async sendEmail(email: string, chain: string, price: number, oldPrice = 0) {
     console.log(`Sending email to ${email} for chain ${chain} for price ${price} ${oldPrice? " old price was : ": ""}`+ oldPrice? oldPrice: "");
     //send email using gmail account
