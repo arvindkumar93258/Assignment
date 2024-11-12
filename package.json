@@ -6,6 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "docker-up": "docker-compose up -d", 
+    "docker-down": "docker-compose down",
+    "docker-build": "docker-compose build",
+    "docker-restart": "docker-compose restart",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
