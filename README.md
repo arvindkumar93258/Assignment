@@ -1,6 +1,15 @@
 
 ## Description
-- 
+- This project is all about implementing the given assignment by hyperhire for the role of Nestjs and blockchain developer.
+
+  ## Requirement
+- Nest.js
+- Use Moralis or Solscan API
+- Relational Database System
+- Swagger
+- Clean code
+- Dockerize to runnable on my local computer.
+    - Should be run all the program by one “docker compose up (—build)” command
 
 ## Project setup
 
