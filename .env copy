@@ -1,0 +1,19 @@
+MORALIS_API_KEY=""
+EMAIL_USER="your_email@gmail.com"
+EMAIL_PASSWORD="email_password"
+PORT=9000
+
+SENDGRID_API_KEY=""
+
+#gmail credentials for sending email
+CLIENT_ID='client id of the gmail apis';
+CLIENT_SECRET='cleint secret';
+REDIRECT_URI='https://developers.google.com/oauthplayground';
+REFRESH_TOKEN='refresh_token';
+
+#db connection details
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=Abcd@123
+DB_NAME=hyperhire

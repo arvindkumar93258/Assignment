@@ -1,0 +1,71 @@
+# version: '3.8'
+# services:
+#   mysql_db:
+#     image: mysql:8.0
+#     environment:
+#       MYSQL_ROOT_PASSWORD: @123  # Set the root password here
+#       MYSQL_DATABASE: hyperhire         # Set the database name here
+#     ports:
+#       - "3307:3306"
+#     networks:
+#       - app-network
+
+#   nestjs_app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     environment:
+#       DB_HOST: assignment-mysql_db-1
+#       DB_PORT: 3306
+#       DB_USERNAME: root
+#       DB_PASSWORD: @123
+#       DB_NAME: hyperhire
+#     ports:
+#       - "3000:3000"
+#     networks:
+#       - app-network
+
+# networks:
+#   app-network:
+#     driver: bridge
+
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      # - "${DB_PORT}:3306"
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  app:
+    build: .
+    container_name: nestjs_app
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
